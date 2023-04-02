@@ -1,2 +1,2 @@
 # JSXL
-Kurs JavaScript
+Kurs JavaScript - szkoła ALX
