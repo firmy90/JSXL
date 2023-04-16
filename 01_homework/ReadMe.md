@@ -6,8 +6,8 @@
 
 #### app1.js - przykładowe komendy i wyniki
 > node app1.js 9 + 5 
-sign +
-9 + 5 = 14
+>> sign +
+>> 9 + 5 = 14
 
 > node app.js 9 - 5 
 sign -
