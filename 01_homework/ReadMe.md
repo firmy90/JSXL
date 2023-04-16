@@ -25,3 +25,5 @@ sign /
 sign /
 Cannot divide by zero
 
+#### Przykładowy plik "historia.json"  danymi
+[{"a":9,"sign":"+","b":5,"res":14},{"a":9,"sign":"+","b":12,"res":21},{"a":9,"sign":"-","b":12,"res":-3},{"a":9,"sign":"**","b":12,"res":108},{"a":9,"sign":"/","b":12,"res":0.75},{"a":9,"sign":"/","b":0,"res":"NaN"},{"a":9,"sign":"+","b":3,"res":12}]

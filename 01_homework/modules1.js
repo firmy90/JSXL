@@ -1,3 +1,28 @@
+const fs = require("fs");
+
+let fetchResults = (file) => {
+  try {
+    let resultString = fs.readFileSync(file);
+    return JSON.parse(resultString);
+  } catch (e) {
+    return new Array();
+  }
+};
+
+
+let addDataToFile = (file, a,sign,b,res) =>{
+  let results = fetchResults(file);
+  let result = {
+    a,
+    sign, 
+    b,
+    res
+  }
+    results.push(result);
+    fs.writeFileSync(file, JSON.stringify(results))
+
+}
+
 let addition = (a, b) => {
   let res = a + b;
   console.log(`${a} + ${b} = ${res}`);
@@ -29,5 +54,6 @@ module.exports = {
   addition,
   substraction,
   multiplication,
-  division
+  division,
+  addDataToFile
 };

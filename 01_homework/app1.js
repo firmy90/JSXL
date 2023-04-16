@@ -6,20 +6,26 @@ const yarg = require("yargs");
 let arg1 = Number(process.argv[2]);
 let sign = process.argv[3];
 let arg2 = Number(process.argv[4]);
-console.log('sign',sign)
+console.log("sign", sign);
+let result = "";
 
 if (sign === "+") {
-  modules.addition(arg1, arg2);
+  result = modules.addition(arg1, arg2);
 } else if (sign == "-") {
-  modules.substraction(arg1, arg2);
+  result = modules.substraction(arg1, arg2);
 } else if (sign == "**") {
-  modules.multiplication(arg1, arg2);
+  result = modules.multiplication(arg1, arg2);
 } else if (sign == "/") {
   try {
-    modules.division(arg1, arg2);
+    result = modules.division(arg1, arg2);
   } catch (Error) {
     console.log("Cannot divide by zero");
+    result = "NaN";
   }
 } else {
   console.log("Write correct command");
+  return -1;
+  
 }
+
+modules.addDataToFile("historia.json", arg1,sign,arg2,result);
