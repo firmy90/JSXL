@@ -40,3 +40,7 @@ asyncAdd(5, 7)
   .catch((errorMessage) => {
     console.log(errorMessage);
   });
+//   Result:  12
+//   function
+//   Success:  Hey! It worked!
+//   Should be 45  45
