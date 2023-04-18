@@ -1,5 +1,7 @@
+const md = require("./modules");
+
 let url =
-  "https://api.openweathermap.org/data/2.5/weather?q=Warsaw&appid=932e9946953aa6fbcc5b20db4e8051a0";
+  `https://api.openweathermap.org/data/2.5/weather?q=Warsaw&appid=${md.apikey()}`;
   data = 'the end data';
 fetch(url, {
   method: "POST",

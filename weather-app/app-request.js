@@ -1,8 +1,9 @@
 const request = require("request");
+const md = require("./modules");
 
 request(
   {
-    url: "https://api.openweathermap.org/data/2.5/weather?q=Warsaw&appid=932e9946953aa6fbcc5b20db4e8051a0",
+    url: `https://api.openweathermap.org/data/2.5/weather?q=Warsaw&appid=${md.apikey()}`,
     json: true,
   },
   (error, response, body) => {
