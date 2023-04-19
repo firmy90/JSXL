@@ -8,7 +8,7 @@ let p = 3000;
 app.listen(p, () => {
   console.log(`Serwer dziala na porcie ${p}`);
 });
-app.use(express.static(__dirname + "/public"));
+
 app.use((req, res, next) => {
   let now = new Date().toString();
   let log = `${now}: ${req.method} ${req.url}`;
@@ -21,6 +21,11 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use((req, res, next) => {
+  res.render("remont.hbs");
+});
+app.use(express.static(__dirname + "/public"));
+
 app.set("view engine", "hbs");
 hbs.registerPartials(__dirname + "/views/partials");
 
@@ -31,10 +36,6 @@ hbs.registerHelper("getCurrentYear", () => {
 hbs.registerHelper("screamIt", (text) => {
   return text.toUpperCase();
 });
-
-
-
-
 
 app.get("/", (req, res) => {
   res.send("<h1>Hello World!</h1>");
