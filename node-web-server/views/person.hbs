@@ -7,9 +7,11 @@
     <title>Document</title>
 </head>
 <body>
-    <h2>Hello Person {{pageTitle}}</h2>
+    {{!-- <h2>Hello Person {{pageTitle}}</h2> --}}
+    {{> header}}
     <p>{{message}}</p>
+    <p>{{screamIt message}}</p>
 
-    <footer>This is my Footer text: {{currentYear}}</footer>
+    {{> footer}} <!-- nazwa pliku *.hbs bez rozszerzenia -->
 </body>
 </html>
