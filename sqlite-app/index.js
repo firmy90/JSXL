@@ -37,7 +37,7 @@ const createPostsIfEmpty = async () => {
 
 db.serialize(async () => {
   await query(
-    "CREATE TABLE IF NOT EXISTS posts (date TEXT, title TEXT, content TEXT, author TEXT,tags TEXT)",
+    `CREATE TABLE IF NOT EXISTS posts (date TEXT, title TEXT, content TEXT, author TEXT,tags TEXT)`,
     "run"
   );
   await createPostsIfEmpty();
