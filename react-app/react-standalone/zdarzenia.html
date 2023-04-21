@@ -1,0 +1,92 @@
+<html>
+
+<head>
+    <title>React złożone komponenty</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #kontener {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+
+</head>
+<script type="text/babel">
+    let destination = document.querySelector("#kontener");
+
+    class Counter extends React.Component {
+        render() {
+            let counterStyle = {
+                margin: "16px 0",
+                padding: 16,
+                fontSize: 72,
+                fontFamily: "sans-serif",
+                color: "#333",
+                fontWeight: "bold"
+
+            };
+            return (
+                <div style={counterStyle}>
+                    {this.props.count}
+                </div>
+            );
+        }
+    }
+
+    class CounterParent extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                count: 0
+            }
+
+        }
+        render() {
+            let backgroundStyle = {
+                padding: 50,
+                backgroundColor: "#FFC53A",
+                width: 250,
+                textAlign: "center",
+                borderRadius: 10,
+                height: 100
+            }
+            let buttonStyle = {
+                fontSize: "1 em",
+                fontWeight: "bold",
+                lineHeight: "3px",
+                color: "#333",
+                height: 30,
+                fontFamily: "sans-serif"
+
+            }
+
+            return (<div style={backgroundStyle}>
+                <Counter count={this.state.count} />
+                <button style={buttonStyle} onClick={this.incrementCount.bind(this)}> + </button>
+            </div>);
+        }
+
+        incrementCount() {
+            this.setState((ps) => {
+                return {
+                    count: ps.count + 1
+                }
+            })
+        }
+    }
+
+    ReactDOM.render(
+        <div>
+            <CounterParent />
+
+
+        </div>, destination
+
+    );
+</script>
+<div id="kontener"></div>
+
+
+</html>

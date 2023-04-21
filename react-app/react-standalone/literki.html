@@ -1,0 +1,46 @@
+<html>
+
+<head>
+    <title>React standalone</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #kontener {
+            padding: 50px;
+            background-color: #FFF;
+        }
+        /* div div div { */
+            .letter{
+            display: inline-block;
+            font-size: 32px;
+            text-align: center;
+            border: 1px solid #000;
+            background-color: #FFDE00;
+            padding: 10px;
+            margin: 10px;
+        }
+    </style>
+
+</head>
+<script type="text/babel">
+    let destination = document.querySelector("#kontener");
+
+    class Literka extends React.Component {
+        render() {
+            return <div className="letter">{this.props.children}</div>
+        }
+    }
+    ReactDOM.render(
+        <div>
+            <Literka>B</Literka>
+            <Literka>U</Literka>
+            <Literka>G</Literka>
+            <Literka>I</Literka>
+        </div>, destination
+    );
+</script>
+<div id="kontener"></div>
+
+
+</html>

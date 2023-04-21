@@ -1,0 +1,74 @@
+<html>
+
+<head>
+    <title>React - interfejs</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #kontener {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+
+</head>
+<script type="text/babel">
+    let destination = document.querySelector("#kontener");
+    let theCircle1 = <Circle bgcolor="#ff44fa" />;
+    let theCircle2 = <Circle bgcolor="blue" />;
+
+    function showCircle() {
+        let colors = ["red", "green", "blue", "yellow", "black", "orange", "purple"];
+        let randomColor = Math.floor(Math.random() * colors.length);
+        return <Circle bgcolor={colors[randomColor]} />
+
+    }
+    function showCircles() {
+        let circles = new Array();
+        let colors = ["red", "green", "blue", "yellow", "black", "orange", "purple"];
+        for (let i = 0; i < colors.length; i++) {
+            let randomColor = Math.floor(Math.random() * colors.length);
+            circles.push(<Circle key={colors[randomColor]} bgcolor={colors[randomColor]}  />)
+
+        }
+        return circles;
+
+    }
+
+
+    class Circle extends React.Component {
+        render() {
+            let circleStyle = {
+                padding: 10,
+                margin: 20,
+                display: "inline-block",
+                backgroundColor: this.props.bgcolor,
+                borderRadius: "50%",
+                width: 100,
+                height: 100
+            }
+            return (
+                <div style={circleStyle}>
+                </div>
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <div>
+            <Circle bgcolor="yellow" />
+            {showCircle()}
+            <p></p>
+            {showCircles()}
+
+
+
+        </div>, destination
+
+    );
+</script>
+<div id="kontener"></div>
+
+
+</html>

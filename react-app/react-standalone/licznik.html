@@ -1,0 +1,75 @@
+<html>
+
+<head>
+    <title>React - licznik</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #kontener {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+
+</head>
+<script type="text/babel">
+    let destination = document.querySelector("#kontener");
+
+    class Counter extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                count: 0
+            }
+            this.tT = this.timerTick.bind(this);
+        }
+
+        timerTick() {
+            this.setState((pS) => { //pS = previousState
+                return {
+                    count: pS.count + 1
+                }
+            })
+        }
+
+        componentDidMount() {
+            setInterval(this.tT, 1000);
+        }
+        render() {
+            return (<h2>{this.state.count}</h2>);
+        }
+    }
+
+    class Display extends React.Component {
+        render() {
+            let divStyle = {
+                width: 250,
+                textAlign: "center",
+                backgroundColor: "black",
+                padding: 40,
+                fontFamily: "sans-serif",
+                color: "#999",
+                borderRadius: 10
+            }
+            return (<div style={divStyle}>
+                <h2>Wyświetlacz ! </h2>
+                <Counter />
+
+
+            </div>);
+        }
+    }
+
+    ReactDOM.render(
+        <div>
+            <Display />
+
+        </div>, destination
+
+    );
+</script>
+<div id="kontener"></div>
+
+
+</html>

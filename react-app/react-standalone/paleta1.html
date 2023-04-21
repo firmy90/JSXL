@@ -1,0 +1,80 @@
+<html>
+
+<head>
+    <title>React złożone komponenty</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #kontener {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+
+</head>
+<script type="text/babel">
+    let destination = document.querySelector("#kontener");
+    class Square extends React.Component {
+        render() {
+            let squareStyle = {
+                height: 150,
+                backgroundColor: "#FF6663"
+
+            }
+            return (<div style={squareStyle}></div>);
+        }
+    }
+    class Label extends React.Component {
+        render() {
+            let labelStyle = {
+                color: "#333",
+                fontSize: 20,
+                // textAlign: "center",
+                fontWeight: "bold",
+                fontFamily: "sans-serif",
+                margin: 0,
+                padding: 10,
+
+
+            }
+            return (<p style={labelStyle}>#FF6663</p>);
+        }
+    }
+    class Card extends React.Component {
+        render() {
+            let cardStyle = {
+                width: 150,
+                height: 200,
+                backgroundColor: "#FFF",
+                padding: 10,
+                margin: 10,
+                border: "1px solid #666",
+                boxShadow: "0px 0px 5px #666",
+            }
+            return (
+                <div style={cardStyle}>
+                    <Square />
+                    <Label />
+
+                </div>
+
+            );
+        }
+    }
+
+
+
+    ReactDOM.render(
+        <div>
+            <Card />
+
+
+        </div>, destination
+
+    );
+</script>
+<div id="kontener"></div>
+
+
+</html>

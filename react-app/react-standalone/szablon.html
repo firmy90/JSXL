@@ -1,0 +1,35 @@
+<html>
+
+<head>
+    <title>React złożone komponenty</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #kontener {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+
+</head>
+<script type="text/babel">
+    let destination = document.querySelector("#kontener");
+    class Display extends React.Component{
+        render(){
+            return(<br/>)
+        }
+    }
+
+        ReactDOM.render(
+        <div>
+
+
+        </div>, destination
+
+    );
+</script>
+<div id="kontener"></div>
+
+
+</html>

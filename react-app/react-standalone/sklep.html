@@ -1,0 +1,70 @@
+<html>
+
+<head>
+    <title>React złożone komponenty</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #kontener {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+
+</head>
+<script type="text/babel">
+    let destination = document.querySelector("#kontener");
+    let items = {
+        name: "Koszulka",
+        price: 29.99,
+        image: "https://rockmetalshop.pl/pol_ps_koszulka-KRECIK-IM-EVIL-211548_2.jpg"
+    };
+
+    class Display extends React.Component {
+        render() {
+            return (
+                <div>
+                    <p> name={items.name}</p>
+                    <p> price={items.price}</p>
+                    <img src={items.image} alt = "Fotka.jpg" width="200"/>
+                </div>
+            );
+        }
+    }
+    class Label extends React.Component {
+        render() {
+            return (
+                // <div>
+                //     <Display name={items.name}
+                //         price={items.price}
+                //         image={items.image} />
+                // </div>
+                <Display {...items} />
+            );
+        }
+    }
+    class Shirt extends React.Component {
+        render() {
+            return (
+                // <Label name={items.name}
+                //         price={items.price}
+                //         image={items.image} />
+                <Label {...items} />
+            );
+        }
+    }
+
+    ReactDOM.render(
+        <div>
+            
+            <Shirt/>
+
+        </div>, destination
+
+    );
+</script>
+<div id="kontener"></div>
+
+
+</html>
