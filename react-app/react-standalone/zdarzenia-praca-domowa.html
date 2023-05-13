@@ -1,0 +1,130 @@
+<html>
+
+<head>
+    <title>React złożone komponenty</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <style>
+        #kontener {
+            padding: 50px;
+            background-color: #FFF;
+        }
+    </style>
+
+</head>
+<script type="text/babel">
+    let destination = document.querySelector("#kontener");
+
+    class Counter extends React.Component {
+        render() {
+            let counterStyle = {
+                margin: "16px 0",
+                padding: 16,
+                fontSize: 72,
+                fontFamily: "sans-serif",
+                color: "#333",
+                fontWeight: "bold"
+
+            };
+            return (
+                <div style={counterStyle}>
+                    {this.props.count}
+                </div>
+            );
+        }
+    }
+
+    class CounterParent extends React.Component {
+        constructor(props) {
+            super(props);
+            this.state = {
+                count: 0
+            }
+
+        }
+        render() {
+            let { count } = this.state;
+            let backgroundStyle = {
+                padding: 50,
+                backgroundColor: count === 30 ? "red" : "#FFC53A",
+                width: 250,
+                textAlign: "center",
+                borderRadius: 10,
+                height: 100
+            }
+            let buttonStyle = {
+                boxShadow: "0px 1px 0px 0px #fff6af",
+                background: "linear-gradient(to bottom, #ffec64 5%, #ffab23 100%)",
+                backgroundColor: "#ffec64",
+                borderRadius: "6px",
+                border: "1px solid #ffaa22",
+                display: "inline-block",
+                cursor: "pointer",
+                color: "#333333",
+                fontFamily: "Arial",
+                fontSize: "15px",
+                fontWeight: "bold",
+                padding: "6px 24px",
+                textDecoration: "none",
+                textShadow: "0px 1px 0px #ffee66",
+                transition: "background-color 0.3s ease",
+
+                ":hover": {
+                    background: "linear-gradient(to bottom, #ffab23 5%, #ffec64 100%)",
+                    backgroundColor:"#ffab23",
+                  
+                },
+
+                ":active": {
+                    position: "relative",
+                    top: "1px",
+                }
+
+            }
+
+
+            return (<div style={backgroundStyle}>
+                <Counter count={this.state.count} />
+                <button style={buttonStyle} onClick={this.decrementCount.bind(this)}> - </button>
+                <button style={buttonStyle} onClick={this.incrementCount.bind(this)}> + </button>
+
+
+            </div>);
+        }
+
+        incrementCount(event) {
+            let isShiftKeyPressed = event.shiftKey;
+            let incrementValue = isShiftKeyPressed ? 10 : 1;
+
+            this.setState((ps) => {
+                return {
+                    count: ps.count + incrementValue
+                };
+            });
+        }
+
+        decrementCount(event) {
+            let isShiftKeyPressed = event.shiftKey;
+            let incrementValue = isShiftKeyPressed ? 10:1;
+            this.setState((ps) => {
+                return {
+                    count: ps.count - incrementValue
+                }
+            })
+        }
+    }
+
+    ReactDOM.render(
+        <div>
+            <CounterParent />
+
+
+        </div>, destination
+
+    );
+</script>
+<div id="kontener"></div>
+
+
+</html>
