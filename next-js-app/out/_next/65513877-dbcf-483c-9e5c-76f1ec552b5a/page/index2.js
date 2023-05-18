@@ -1,0 +1,1 @@
+module.exports=__NEXT_REGISTER_PAGE("/index2",function(){var e=webpackJsonp([2],{184:function(e,t,r){e.exports=r(185)},185:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:true});var n=r(11);var u=r.n(n);var o=function e(){return u.a.createElement("div",null,"Hello from React World!")};t["default"]=o}},[184]);return{page:e.default}});
