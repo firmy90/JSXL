@@ -3,3 +3,5 @@ react-app/**/node_modules/
 react-app/**/build/
 node_modules/
 api-key.json
+.next/
+**/.next/
